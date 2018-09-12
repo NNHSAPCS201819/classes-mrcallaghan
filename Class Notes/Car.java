@@ -11,15 +11,16 @@ public class Car
      * Instance variable store the object's properties/attributes
      *      specify the visibility (e.g. private)
      *          public: accessible by anyone
-     *          private: only accessed through methods in the class
+     *          private: only accessed through methods in teh class
      *      specify the type (e.g. double)
      *      specify the name (e.g. fuelEfficiency)
      *      
-     *  Instance variables differ from local variable in the following ways:
-     *      scoped to their class (accessible using the methods of the class)
+     *  Instance variables differ form local variable in teh following ways:
+     *      scoped to their class (accessible using the methods of class)
      *      automatically initialized to a default value (0, false, null)
      */
-
+    
+    // instance variables - replace the example below with your own
     private double fuelEfficiency;  // in units of miles per gallon
     private double fuelInTank;      // in units of gallons
 
