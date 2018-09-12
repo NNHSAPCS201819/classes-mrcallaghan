@@ -24,19 +24,7 @@ public class Car
     private double fuelEfficiency;  // in units of miles per gallon
     private double fuelInTank;      // in units of gallons
 
-    /**
-     * Default constructor for the Car class
-     *      Initializes the fuel efficiency to 30 mpg and the fuel in this car's tank to 0 gallons.
-     */
-    public Car()
-    {
-        
-    }
     
-    public Car( double initialEfficiency )
-    {
-        
-    }
     
     /*
      * When defining a method, specify:
@@ -51,28 +39,5 @@ public class Car
      * 
      * @param distance the distance, in miles, this car drives
      */
-    public void drive( double distance )
-    {
-        
-    }
     
-    /**
-     * Adds the specified amount of fule to this car's tank.
-     * 
-     * @param amount the amoun of fuel, in galons to add to this car's tank
-     */
-    public void addFuel( double amount )
-    {
-        
-    }
-    
-    /**
-     * Returns the amount of fuel in this car's tank
-     * 
-     * @return the amount of fuel, in gallons, in this car's tank
-     */
-    public double getFuelInTank()
-    {
-        return 0;
-    }
 }
