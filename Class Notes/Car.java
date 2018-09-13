@@ -36,10 +36,18 @@ public class Car
     
     /**
      * Default constructor for the class Car
-     *      Initialize the fuel efficiency to 30 mpg and the hfuel in teh car's tank to 0 gallons
+     *      Initialize the fuel efficiency to 30 mpg and the fuel in the car's tank to 0 gallons
      */
     public Car()
     {
+        /*
+         * The 'this' reserved word references teh current object (like 'self' in Python)
+         * It's usage is encouraged but usually not required.  
+         */
+        
+        this.fuelEfficiency = 30;
+        this.fuelInTank = 0;
+        this.licensePlate = "";
         
     }
     
@@ -50,7 +58,19 @@ public class Car
      */
     public Car( double initialEfficiency )
     {
+        /*
+         * If the parameter was named fuelEfficiency, it would "shadow" the instance 
+         *      variable fuelEfficiency.
+         * Local and parameter variable "shadow" instance variables of teh same name.  In this code
+         *      fuelEfficiency would refer to the parameter and not the instance variable.
+         *      
+         * To refer explicitly to the instance variable, use "this".
+         * Adivce: avoid the shadow issue by giving parameters unique names.
+         */
         
+        this.fuelEfficiency = initialEfficiency;
+        this.fuelInTank = 0;
+        this.licensePlate = "";
     }
 
     /*
@@ -78,7 +98,7 @@ public class Car
      */
     public void addFuel( double amount )
     {
-        
+        this.fuelInTank += amount;
     }
     
     /**
@@ -88,7 +108,7 @@ public class Car
      */
     public double getFuelInTank()
     {
-        return 0;
+        return this.fuelInTank;
     }
     
     /**
