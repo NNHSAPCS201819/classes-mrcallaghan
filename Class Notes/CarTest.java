@@ -77,6 +77,16 @@ public class CarTest
         assertEquals( 7.5, amount, 1e-6);
     }
     
+    @Test
+    public void testSetLicensePlate()
+    {
+        Car testCar = new Car();
+        String newPlate = new String("CompSci1");
+        testCar.setLicensePlate(newPlate);
+        String returnedPlate = testCar.getLicensePlate();
+        assertEquals(newPlate, returnedPlate);
+    }
+    
     
     
     

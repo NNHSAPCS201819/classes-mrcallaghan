@@ -88,7 +88,7 @@ public class Car
      */
     public void drive( double distance )
     {
-        
+        this.fuelInTank -= (   distance / this.fuelEfficiency );
     }
     
     /**
@@ -118,7 +118,7 @@ public class Car
      */
     public void setLicensePlate( String plate )
     {
-        
+        this.licensePlate = plate;
     }
     
     /**
@@ -128,7 +128,7 @@ public class Car
      */
     public String getLicensePlate()
     {
-        return "";
+        return this.licensePlate;
     }
     
     
