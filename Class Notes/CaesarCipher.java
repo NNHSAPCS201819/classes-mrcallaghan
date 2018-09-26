@@ -4,12 +4,59 @@ import java.util.Scanner;
  * This class encrypts strings with a keyphrase version of the classic Caesar Cipher.
  *      (as described in The Code Book by Simon Singh)
  *
- * @author gcschmit
- * @version 21 September 2018
+ * @author mcallaghan
+ * @version 26 September 2018
  */
 public class CaesarCipher
 {
     private static final String ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";  
+    
+    public static void main( String[] args )
+    {
+        /*
+         * A scanner object parses a primitive type or a String from a stream.
+         * 
+         * A stream is a sequence of characters from file, String, keyboard, network connection, etc.
+         * 
+         * Parsing is separating a sequence of characters into tokens based on delimiters.
+         * 
+         *  A token is a meaningful sequence of characters (e.g. word)
+         *  
+         *  Delimiters are characters that separate tokens (by default whitespace (space, tab, newline)
+         *  is teh delimiter.
+         *  
+         *  When we create a Scnanner object, we must specify the input stream (e.g. System.in which is
+         *    the keyboard via the terminal window).
+         */
+        
+        Scanner s = new Scanner(System.in);
+        
+        /*
+         * Best prcatice:
+         *      1. Prompt the user for what to input
+         *      2. Use print rather than println, then the user input immediately follow the colon
+         *      3. Leave a space after the colon
+         */
+        
+        System.out.print("Enter the text to encrypt: ");
+        
+        /*
+         * The nextLine method returns all characters up to the end of the line (i.e. where the user
+         *   typed enter).
+         */
+        
+        String text = s.nextLine();
+        text = text.toUpperCase();
+        
+    }
+    
+    
+    
+    
+    
+    
+    
+    
     
     /**
      * Encrypts the specified text using the specified keyphrase using a
