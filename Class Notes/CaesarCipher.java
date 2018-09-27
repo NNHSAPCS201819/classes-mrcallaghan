@@ -48,6 +48,74 @@ public class CaesarCipher
         String text = s.nextLine();
         text = text.toUpperCase();
         
+        System.out.print("Enter the number of seconds to test a guessed keyphrase: ");
+        
+        /*
+         * The nextInt method attempts to convert the next token in teh stream to an int 
+         *   and returns the value.  If the next token cannot be converted, an exception is generated.
+         * The nextDouble method behaves in teh same way for doubles.
+         */
+        int secondsPerGuess = s.nextInt();
+        
+        
+    }
+    
+    public static void printAverageTimeToCrack(long totalSeconds)
+    {
+        /*
+         * Instead of using "magic numbers" (e.g. 3.14159), use constactsd defined by us or the 
+         *   Java Standard Library.
+         *   
+         * For example, in the Math class is defined:
+         *   public static final double PI = 3.141592654;
+         *   
+         * Declare a constant with the final keyword.
+         *   If we try to change the value, a compile error will be generated.
+         * By convention, constants are in all caps.
+         */
+        
+        final int SECONDS_FOR_EVERY_MINUTE = 60;
+        final int MINUTES_FOR_EVERY_HOUR = 60;
+        final int HOURS_FOR_EVERY_DAY = 24;
+        final int DAYS_FOR_EVERY_YEAR = 365;
+        
+        // SECONDS_FOR_EVERY_MINUTE = 50;  Can't do this
+        
+        /*
+         * Use integer division to calculate how many whole minutes based on the specified number 
+         *   of seconds.
+         *   
+         * Integer division (like the // in Python) discards teh remainder (truncates)
+         * 
+         * For example:  ( 3/4 ) evaluates to 0; (3.0 / 4) evaluates to 0.75
+         * 
+         * In Java, the type of division executed depends on the type of values (or operands)
+         */
+        
+        long totalMinutes = totalSeconds / SECONDS_FOR_EVERY_MINUTE;
+        
+        /*
+         * Use the modulo operator (%) returns the remainder of teh division operation.
+         *   It can be very useful when paired with integer division.
+         *   
+         *   Examples:
+         *     7 % 2 = 1
+         *     11 % 3 = 2
+         *     6 % 2 = 0
+         *              *     
+         */
+        long seconds = totalSeconds % SECONDS_FOR_EVERY_MINUTE;
+        long totalHours = totalMinutes / MINUTES_FOR_EVERY_HOUR;
+        long minutes = totalMinutes % MINUTES_FOR_EVERY_HOUR;
+        long totalDays = totalHours / HOURS_FOR_EVERY_DAY;
+        long hours = totalHours % HOURS_FOR_EVERY_DAY;
+        long years = totalDays / DAYS_FOR_EVERY_YEAR;
+        long days = totalDays % DAYS_FOR_EVERY_YEAR;
+        
+        
+        
+        
+        
     }
     
     
