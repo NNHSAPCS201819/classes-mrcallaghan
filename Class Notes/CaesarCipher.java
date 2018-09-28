@@ -9,6 +9,12 @@ import java.util.Scanner;
  */
 public class CaesarCipher
 {
+    
+    /*
+     * static: one value for the variable for all objects of the class; can be accessed directly 
+     *   through the class.  This means it's a class variable.
+     *   (e.g. CaesarCipher.ALPHABET) -- just like Math.PI
+     */
     private static final String ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";  
     
     public static void main( String[] args )
@@ -60,6 +66,24 @@ public class CaesarCipher
         
     }
     
+    
+    /**
+     * Formats the average time to crack the cipher based on the
+     *      specified number of seconds and displaysit via System.out
+     *      in several formats.
+     *  
+     *  This method is static and is independent of the state of a
+     *      CasesarCipher object. As a result, this method may be
+     *      invoked on the class instead of on a variable that
+     *      references an object.
+     *      (e.g., CaesarCipher.printAverageTimeToCrack())
+     *  
+     *  Static methods cannot access any instance variables. They can
+     *      only access static class variables.
+     *      
+     *  @param  totalSeconds    the average number of seconds to crack
+     *                          the cipher
+     */
     public static void printAverageTimeToCrack(long totalSeconds)
     {
         /*
@@ -105,12 +129,19 @@ public class CaesarCipher
          *              *     
          */
         long seconds = totalSeconds % SECONDS_FOR_EVERY_MINUTE;
-        long totalHours = totalMinutes / MINUTES_FOR_EVERY_HOUR;
+        
+        long totalHours = totalMinutes / MINUTES_FOR_EVERY_HOUR;        
         long minutes = totalMinutes % MINUTES_FOR_EVERY_HOUR;
+        
         long totalDays = totalHours / HOURS_FOR_EVERY_DAY;
         long hours = totalHours % HOURS_FOR_EVERY_DAY;
+        
         long years = totalDays / DAYS_FOR_EVERY_YEAR;
         long days = totalDays % DAYS_FOR_EVERY_YEAR;
+        
+        System.out.println("Average time to crack: " + years + " years, " + days + " days, " +
+            hours + " hours, " + minutes + " minutes, " + seconds + " seconds.");
+            
         
         
         
