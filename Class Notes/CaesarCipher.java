@@ -63,6 +63,16 @@ public class CaesarCipher
          */
         int secondsPerGuess = s.nextInt();
         
+        /*
+          * Generate a random number between 1 and 26 using the
+          *     Math.random method.
+          * 
+          *  We could use the Random class:
+          *     int letterIndex = generator.nextInt(26) + 1;
+          *     
+          *  int randomValue = (int)((Math.random() * (max-min+1)) + min);
+          */
+         int letterIndex = (int)(((Math.random() * 26) + 1));
         
     }
     
@@ -142,20 +152,73 @@ public class CaesarCipher
         System.out.println("Average time to crack: " + years + " years, " + days + " days, " +
             hours + " hours, " + minutes + " minutes, " + seconds + " seconds.");
             
+        /*
+         * A conversion is when a data value is converted from one type ot another (e.g.
+         *   int to a double, double to an int, int to a long)
+         *   
+         * Widening: preserves information (e.g. int to double, int to long)
+         *   Java automatically does this.
+         *   
+         * Narrowing (lossy): may lose information (e.g. double to int)
+         * 
+         * This is a widening conversion (i.e., long to double)
+         */
+        double yearsAsDecimal = totalSeconds;
         
+        /*
+         * Arithmetic promotion
+         * 
+         * If the two operands are of different types, Java attempts to convert one of the types
+         *   (widening conversion) and then performs the operation.
+         *   
+         * In this case, both SECONDS_FOR_EVERY_MINUTE and MINUTES_FOR_EVERY_HOUR are ints; so,
+         *   Java does not perform and promotion, and just performs intefer multiplication
+         */
         
+        final long SECONDS_FOR_EVERY_YEAR = SECONDS_FOR_EVERY_MINUTE * MINUTES_FOR_EVERY_HOUR * 
+          HOURS_FOR_EVERY_DAY * DAYS_FOR_EVERY_YEAR;
+          
+        /*
+         * In this example, the value of SECONDS_FOR_EVERY_YEAR is promoted to a double and then
+         *   the floating-point division is performed and assigned to yearsAsDecimal. The local 
+         *   variable SECONDS_FOR_EVERY_YEAR is still a long and has the same value.
+         */
+        yearsAsDecimal = yearsAsDecimal / SECONDS_FOR_EVERY_YEAR;
         
+        System.out.println("or " + yearsAsDecimal + " years");
+        
+        /*
+         * A cast is "I know what I'm doing; trust me" conversion
+         * 
+         * A cast can perform a narrowing conversion because we are explicitly doing so.
+         * 
+         * (int)(84.69) --> truncate to an int (84)
+         * 
+         * If we want to round a double to the nearest int value, use Math.round static method:
+         * 
+         *      public static long round( double value );
+         *      public static int round( float value);
+         *      
+         * The following divides yearsAsDecimal by 10, rounds the result to the nearsest decade 
+         *   and then casts the resulting double to an int.
+         */
+        int decades = (int)Math.round(yearsAsDecimal / 10);
+        System.out.print("or about " + decades + "decades");
         
         
     }
     
-    
-    
-    
-    
-    
-    
-    
+    /**
+     * Compresses the specified keyphrase by removing any duplicate letters.
+     * 
+     * @param   keyphrase   the keyphrase to compress
+     * @return  the keyphrase with all duplicate letters removed
+     */
+    public static String compressKeyphrase(String keyphrase)
+    {
+        
+        return "";
+    }
     
     /**
      * Encrypts the specified text using the specified keyphrase using a
