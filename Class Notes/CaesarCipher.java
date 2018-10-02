@@ -11,6 +11,14 @@ public class CaesarCipher
 {
     
     /*
+     * String literal
+     *   is an instance of the String class (not a primitive)
+     *   delineated by double quotes
+     *   must be defined on a single line
+     *   
+     * "ABCDEFGHIJKLMNOPQRSTUVWXYZ" is a String literal
+     * equivalent to: new String("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
+     * 
      * static: one value for the variable for all objects of the class; can be accessed directly 
      *   through the class.  This means it's a class variable.
      *   (e.g. CaesarCipher.ALPHABET) -- just like Math.PI
@@ -75,6 +83,7 @@ public class CaesarCipher
          int letterIndex = (int)(((Math.random() * 26) + 1));
         
     }
+    
     
     
     /**
@@ -216,6 +225,30 @@ public class CaesarCipher
      */
     public static String compressKeyphrase(String keyphrase)
     {
+        String compressedKeyphrase = "";
+        
+        /*
+         * length
+         *      returns the number of characters in the string
+         */
+        
+        int keyPhraseLength = keyphrase.length();
+        
+        for(int i = 0; i < keyPhraseLength; i++)
+        {
+            /*
+             * charAt
+             *      returns the character (of type char) at the specifeid index (0 based)
+             * 
+             * C A E S A R
+             * 0 1 2 3 4 5   <-- indices
+             * 
+             * length = 6
+             */
+            
+            char letter = keyphrase.charAt(i);
+        }
+        
         
         return "";
     }
