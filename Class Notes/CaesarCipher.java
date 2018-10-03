@@ -62,6 +62,14 @@ public class CaesarCipher
         String text = s.nextLine();
         text = text.toUpperCase();
         
+        System.out.print("Enter the keyphrase (no spaces): ");
+        
+        /*
+         * The next method returns teh next token in teh stream as a string
+         */
+        String keyphrase = s.next();
+        keyphrase = keyphrase.toUpperCase();
+        
         System.out.print("Enter the number of seconds to test a guessed keyphrase: ");
         
         /*
@@ -81,6 +89,17 @@ public class CaesarCipher
           *  int randomValue = (int)((Math.random() * (max-min+1)) + min);
           */
          int letterIndex = (int)(((Math.random() * 26) + 1));
+         
+         // prepare teh keyphrase by removing duplicate letters
+         keyphrase = CaesarCipher.compressKeyphrase(keyphrase);
+         
+         long averageTimeToCrack = CaesarCipher.calculateAverageTimeToCrack(keyphrase.length(),
+                                    secondsPerGuess);
+                                    
+         CaesarCipher.printAverageTimeToCrack(averageTimeToCrack);
+         
+         String encryptedText = CaesarCipher.encrypt(text, keyphrase);
+         System.out.println("Encrypted: " + encryptedText);
         
     }
     
@@ -247,10 +266,52 @@ public class CaesarCipher
              */
             
             char letter = keyphrase.charAt(i);
+            
+            /*
+             * substring
+             *      returns part of the string starting at the first index up to, but not including
+             *        the second index.
+             *        
+             *      if only one index is specified, returns part of the string statring at the index
+             *        through the end of the string.
+             *        
+             *  C A E S A R
+             *  0 1 2 3 4 5   <-- indices
+             */     
+            
+            String restOfKeyphrase = keyphrase.substring(i+1);
+            //could be:
+            // String restOfKeyphrase = keyphrase.substring(i+1,keyphrase.length());
+            
+            
+            /*
+             * indexOf
+             *      returns the index of the start of the first occurence of the specified string
+             *        if not found, returns -1
+             *        
+             * A E S A R
+             * 0 1 2 3 4   <-- indices
+             * 
+             * length = 5
+             */
+            
+            int index = restOfKeyphrase.indexOf(letter);
+            
+            /*
+             * String concatenation
+             *      + is the string concatenation operator
+             *      concatenates the second string operand to the end of the first string operand
+             *      if one or both operands are Strings, + is teh string concatenation operator 
+             *        (operands are converted to strings)
+             */
+            if(index == -1)
+            {
+                compressedKeyphrase = compressedKeyphrase + letter;
+            }
         }
         
         
-        return "";
+        return compressedKeyphrase;
     }
     
     /**

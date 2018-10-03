@@ -1,8 +1,8 @@
 #BlueJ package file
 objectbench.height=303
-objectbench.width=1216
+objectbench.width=1228
 package.editor.height=279
-package.editor.width=1146
+package.editor.width=1158
 package.editor.x=0
 package.editor.y=1
 package.numDependencies=0
@@ -88,8 +88,8 @@ target6.typeParameters=
 target6.width=160
 target6.x=190
 target6.y=80
-target7.editor.height=696
-target7.editor.width=1292
+target7.editor.height=744
+target7.editor.width=1382
 target7.editor.x=-8
 target7.editor.y=-8
 target7.height=50
