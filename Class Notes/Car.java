@@ -131,7 +131,17 @@ public class Car
         return this.licensePlate;
     }
     
-    
+    /**
+     * Returns a String that describes this object.
+     * 
+     * @return a String that describes this object.
+     */
+    public String toString()
+    {
+        String str = "Fuel efficiency: " + this.fuelEfficiency +
+                    "\nFuel in tank: " + this.getFuelInTank(); //preferable to use the accessor
+        return str;
+    }
     
     
     
