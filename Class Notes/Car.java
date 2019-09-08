@@ -106,11 +106,11 @@ public class Car  // public means others can use it
     /**
      * Returns the amount of fuel in this car's tank
      * 
-     * @return the amount of fuel, in galons, in this car's tank
+     * @return the amount of fuel, in gallons, in this car's tank
      */
     public double getFuelInTank()
     {
-        return this.fuelInTank;
+        return this.fuelInTank; // we want this to compile, so put in return 0; as a placeholder
     }
     
     /**
